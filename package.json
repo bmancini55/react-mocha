@@ -1,0 +1,36 @@
+{
+  "name": "react-mocha",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_PATH=./src mocha --recursive \"src/**/*.spec.js\" --compilers js:babel/register",
+    "watch:server": "NODE_PATH=./src nodemon --ext js --watch src/server/ src/server/index.js",
+    "watch:admin": "NODE_PATH=./src/client/js watchify src/client/js/app.js -o src/client/js/bundle.js -v",
+    "watch": "parallelshell 'npm run watch:server' 'npm run watch:admin'"
+  },
+  "keywords": [],
+  "author": "Brian <bmancini@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel": "^5.8.23",
+    "babel-runtime": "^5.8.25",
+    "classnames": "",
+    "express": "",
+    "flux": "",
+    "jade": "",
+    "react": "",
+    "serve-static": ""
+  },
+  "dev-dependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
+    "chai": "",
+    "mocha": "",
+    "nodemon": "",
+    "parallelshell": "",
+    "reactify": "^1.1.1",
+    "sinon": "",
+    "watchify": ""
+  }
+}

@@ -6,8 +6,8 @@
   "scripts": {
     "test": "NODE_PATH=./src mocha --recursive \"src/**/*.spec.js\" --compilers js:babel/register",
     "watch:server": "NODE_PATH=./src nodemon --ext js --watch src/server/ src/server/index.js",
-    "watch:admin": "NODE_PATH=./src/client/js watchify src/client/js/app.js -o src/client/js/bundle.js -v",
-    "watch": "parallelshell 'npm run watch:server' 'npm run watch:admin'"
+    "watch:app": "NODE_PATH=./src/client/js watchify src/client/js/app.js -o src/client/js/bundle.js -v",
+    "watch": "parallelshell 'npm run watch:server' 'npm run watch:app'"
   },
   "keywords": [],
   "author": "Brian <bmancini@gmail.com>",
@@ -22,7 +22,7 @@
     "react": "",
     "serve-static": ""
   },
-  "dev-dependencies": {
+  "devDependencies": {
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
     "chai": "",
@@ -32,5 +32,19 @@
     "reactify": "^1.1.1",
     "sinon": "",
     "watchify": ""
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "stage": 1,
+          "optional": [
+            "runtime"
+          ]
+        }
+      ],
+      "reactify"
+    ]
   }
 }

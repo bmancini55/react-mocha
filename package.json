@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "parallelshell 'npm run test:component' 'npm run test:flux'",
-    "test:component": "NODE_PATH=examples/component mocha --require jsdom.js --compilers js:babel/register examples/component/component.spec.jsx",
-    "test:flux": "NODE_PATH=examples/flux mocha --require jsdom.js --compilers js:babel/register --recursive examples/flux/*.spec.js"
+    "test": "npm run test:component && npm run test:flux",
+    "test:component": "NODE_PATH=examples/component mocha --require jsdom.js --compilers js:babel/register examples/component/component.spec.*",
+    "test:flux": "NODE_PATH=examples/flux mocha --require jsdom.js --compilers js:babel/register --recursive examples/flux/*.spec.*"
   },
   "keywords": [],
   "author": "Brian <bmancini@gmail.com>",

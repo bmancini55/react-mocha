@@ -10,8 +10,8 @@ module.exports = React.createClass({
     let message = this.state.message;
     return (
       <div>
-        <h2 className='sub-banner'>{message}</h2>
-        <button onClick={this.changeMessage}>Click</button>
+        <h2 ref='subBanner' className='sub-banner'>{message}</h2>
+        <button ref='messageButton' onClick={this.changeMessage}>Click</button>
       </div>
     );
   },

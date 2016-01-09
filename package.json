@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_PATH=./src mocha --recursive \"src/**/*.spec.js\" --compilers js:babel/register",
-    "watch:server": "NODE_PATH=./src nodemon --ext js --watch src/server/ src/server/index.js",
-    "watch:app": "NODE_PATH=./src/client/js watchify src/client/js/app.js -o src/client/js/bundle.js -v",
-    "watch": "parallelshell 'npm run watch:server' 'npm run watch:app'"
+    "test": "parallelshell 'npm run test:component' 'npm run test:flux'",
+    "test:component": "NODE_PATH=examples/component mocha --require jsdom.js --compilers js:babel/register examples/component/component.spec.jsx",
+    "test:flux": "NODE_PATH=examples/flux mocha --require jsdom.js --compilers js:babel/register --recursive examples/flux/*.spec.js"
   },
   "keywords": [],
   "author": "Brian <bmancini@gmail.com>",
@@ -24,9 +23,11 @@
     "serve-static": ""
   },
   "devDependencies": {
+    "babel-eslint": "^4.1.6",
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
     "chai": "",
+    "eslint": "^1.10.3",
     "jsdom": "^7.2.2",
     "mocha": "",
     "nodemon": "",
